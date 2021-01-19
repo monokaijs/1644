@@ -30,7 +30,7 @@ app.use(session({
 authRouter(app);
 router(app);
 
-const SERVER_PORT = process.env.YOUR_PORT || process.env.PORT || 80;
+const SERVER_PORT = process.env.YOUR_PORT || process.env.PORT || 3000;
 const SERVER_HOST = process.env.YOUR_HOST || '0.0.0.0';
 app.listen(SERVER_PORT, SERVER_HOST, function() {
     console.log('Listening on port %d', SERVER_PORT);
