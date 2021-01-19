@@ -1,5 +1,5 @@
 exports = module.exports = {
-    name: "Staff Manager",
+    name: "Toys Store",
     sessionSecret: 'mastered production hell',
     aside: [{
         icon: "",
