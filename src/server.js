@@ -8,7 +8,7 @@ const siteConfig = require('./config/site-config');
 const session = require('express-session');
 
 const {MongoClient} = require('mongodb');
-const Database = require('./utils/Database');
+const Database = require('./utils/database');
 const md5 = require('md5');
 
 Database.initialize(md5);
