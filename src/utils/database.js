@@ -1,16 +1,13 @@
-const {MongoClient} = require('mongodb');
 const md5 = require('md5');
 
 class Database {
-    static uri = "mongodb+srv://admin:Mongo123@cluster0.ifklf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-    static client = new MongoClient(this.uri);
     static database;
     constructor() {
     }
-    static async connect() {
+    static async connect(client) {
+        this.client = client;
         try {
             await this.client.connect();
-
             this.database = this.client.db("assignment1");
         } catch (e) {
             console.log(e);

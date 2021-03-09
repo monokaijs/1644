@@ -6,6 +6,7 @@ const authRouter = require('./routers/auth-router');
 const path = require('path');
 const siteConfig = require('./config/site-config');
 const session = require('express-session');
+const {MongoClient} = require('mongodb');
 const Database = require('./utils/database');
 
 // === initializing the application
@@ -31,9 +32,11 @@ app.use(session({
 
 authRouter(app);
 router(app);
+let uri = "mongodb+srv://admin:Mongo123@cluster0.ifklf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+let client = new MongoClient(uri);
 
 // connect to database
-Database.connect().then(() => {
+Database.connect(client).then(() => {
     console.log("Successfully established connection!");
     // establish the server
     const SERVER_PORT = process.env.PORT || 3000;
