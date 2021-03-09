@@ -1,8 +1,10 @@
-const md5 = require('md5');
-
 class Database {
     static database;
+    static md5;
     constructor() {
+    }
+    static initialize(md5) {
+        this.md5 = md5;
     }
     static async connect(client) {
         this.client = client;
@@ -15,6 +17,7 @@ class Database {
         }
     }
     static createAccount(firstName, lastName, email, password) {
+        let md5 = this.md5;
         return new Promise((resolve, reject) => {
             const accounts = this.database.collection("users");
             accounts.findOne({
@@ -38,6 +41,7 @@ class Database {
         });
     }
     static login(email, password) {
+        let md5 = this.md5;
         return new Promise((resolve, reject) => {
             const users = this.database.collection("users");
             users.findOne({
