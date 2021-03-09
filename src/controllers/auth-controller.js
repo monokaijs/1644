@@ -85,7 +85,7 @@ class AuthController {
                         renderPage();
                     }
                 }
-            }
+            } else renderPage();
         }
     }
 }
