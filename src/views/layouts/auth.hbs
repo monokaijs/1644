@@ -1,225 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" name="viewport">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-touch-fullscreen" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Atmos Admin Panel- Bootstrap 4 Based Admin Panel</title>
-    <link rel="icon" type="image/x-icon" href="/assets/img/logo.png"/>
-    <link rel="icon" href="/assets/img/logo.png" type="image/png" sizes="16x16">
-    <link rel="stylesheet" href="/assets/vendor/pace/pace.css">
-    <script src="/assets/vendor/pace/pace.min.js"></script>
-    <!--vendors-->
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/vendor/jquery-scrollbar/jquery.scrollbar.css">
-    <link rel="stylesheet" href="/assets/vendor/select2/css/select2.min.css">
-    <link rel="stylesheet" href="/assets/vendor/jquery-ui/jquery-ui.min.css">
-    <link rel="stylesheet" href="/assets/vendor/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="/assets/vendor/timepicker/bootstrap-timepicker.min.css">
-    <link href="/https://fonts.googleapis.com/css?family=Hind+Vadodara:400,500,600" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/fonts/jost/jost.css">
-    <!--Material Icons-->
-    <link rel="stylesheet" type="text/css" href="/assets/fonts/materialdesignicons/materialdesignicons.min.css">
-    <!--Bootstrap + atmos Admin CSS-->
-    <link rel="stylesheet" type="text/css" href="/assets/css/atmos.min.css">
-    <!-- Additional library for page -->
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{{siteConfig.name}} :: Login</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- Vendor CSS -->
+    <link href="/js/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/js/vendor/slick/slick.min.css" rel="stylesheet">
+    <link href="/js/vendor/fancybox/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="/js/vendor/animate/animate.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/css/style-light.css" rel="stylesheet">
+    <!--icon font-->
+    <link href="/fonts/icomoon/icomoon.css" rel="stylesheet">
+    <!--custom font-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 </head>
-<body class="jumbo-page">
 
-<main class="admin-main  ">
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-4  bg-white">
-                <div class="row align-items-center m-h-100">
-                    <div class="mx-auto col-md-8">
-                        <div class="p-b-20 text-center">
-                            <p>
-                                <img src="/assets/img/logo.svg" width="80" alt="">
-
-                            </p>
-                            <p class="admin-brand-content">
-                                atmos
-                            </p>
-                        </div>
-                        <h3 class="text-center p-b-20 fw-400">Login</h3>
-                        <form class="needs-validation" action="#" method="POST">
-                            <div class="form-row">
-                                <div class="form-group floating-label col-md-12">
-                                    <label>Email</label>
-                                    <input name="email" type="email" required class="form-control" placeholder="Email">
-                                </div>
-                                <div class="form-group floating-label col-md-12">
-                                    <label>Password</label>
-                                    <input name="password" type="password" required class="form-control">
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
-
-                        </form>
-                        <p class="text-right p-t-10">
-                            <a href="#!" class="text-underline">Forgot Password?</a>
-                        </p>
-                    </div>
-
+<body class="is-dropdn-click">
+{{> preloader}}
+<header class="hdr global_width hdr_sticky hdr-mobile-style2">
+    <!-- Mobile Menu -->
+    <div class="mobilemenu js-push-mbmenu">
+        <div class="mobilemenu-content">
+            <div class="mobilemenu-close mobilemenu-toggle">CLOSE</div>
+            <div class="mobilemenu-scroll">
+                <div class="mobilemenu-search"></div>
+                <div class="nav-wrapper show-menu">
+                    <div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span class="nav-title"></span></div>
+                    <ul class="nav nav-level-1">
+                        {{#each siteConfig.menu}}
+                            <li>
+                                <a href="{{this.url}}">{{this.title}}</a>
+                                {{#if this.submenu}}
+                                    <span class="arrow"></span>
+                                    <div class="mmenu-submenu">
+                                        <ul class="nav-level-2">
+                                            {{#each this.submenu}}
+                                                <li>
+                                                    <a href="{{this.url}}" title="">
+                                                        {{this.title}}
+                                                        <span class="mmenu-preview">
+                                                            <img src="images/placeholder.png" data-src="images/menu/preview-layout-01.jpg" class="lazyload" alt=""/>
+                                                            <span class="gdw-loader"></span>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                {{/if}}
+                            </li>
+                        {{/each}}
+                    </ul>
                 </div>
-            </div>
-            <div class="col-lg-8 d-none d-md-block bg-cover" style="background-image: url('/assets/img/login.svg');">
-
+                <div class="mobilemenu-bottom">
+                    <div class="mobilemenu-currency"></div>
+                    <div class="mobilemenu-language"></div>
+                    <div class="mobilemenu-settings"></div>
+                </div>
             </div>
         </div>
     </div>
-</main>
-
-<div class="modal modal-slide-left  fade" id="siteSearchModal" tabindex="-1" role="dialog" aria-labelledby="siteSearchModal"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-
-            <div class="modal-body p-all-0" id="site-search">
-                <button type="button" class="close light" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="form-dark bg-dark text-white p-t-60 p-b-20 bg-dots" >
-                    <h3 class="text-uppercase    text-center  fw-300 "> Search</h3>
-
-                    <div class="container-fluid">
-                        <div class="col-md-10 p-t-10 m-auto">
-                            <input type="search" placeholder="Search Something"
-                                   class=" search form-control form-control-lg">
-
-                        </div>
-                    </div>
+    <!-- /Mobile Menu -->
+    <div class="hdr-mobile show-mobile">
+        <div class="hdr-content">
+            <div class="container">
+                <!-- Menu Toggle -->
+                <div class="menu-toggle"><a href="/#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a></div>
+                <!-- /Menu Toggle -->
+                <div class="logo-holder"><a href="/index.html" class="logo"><img src="/images/logo.png" srcset="images/logo-retina.png 2x" alt=""></a></div>
+                <div class="hdr-mobile-right">
+                    <div class="hdr-topline-right links-holder"></div>
+                    <div class="minicart-holder"></div>
                 </div>
-                <div class="">
-                    <div class="bg-dark text-muted container-fluid p-b-10 text-center text-overline">
-                        results
-                    </div>
-                    <div class="list-group list  ">
-
-
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle"   src="/assets/img/users/user-3.jpg" alt="user-image"></div>
-                            </div>
-                            <div class="">
-                                <div class="name">Eric Chen</div>
-                                <div class="text-muted">Developer</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle"
-                                                                    src="/assets/img/users/user-4.jpg" alt="user-image"></div>
-                            </div>
-                            <div class="">
-                                <div class="name">Sean Valdez</div>
-                                <div class="text-muted">Marketing</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm "><img class="avatar-img rounded-circle"
-                                                                    src="/assets/img/users/user-8.jpg" alt="user-image"></div>
-                            </div>
-                            <div class="">
-                                <div class="name">Marie Arnold</div>
-                                <div class="text-muted">Developer</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm ">
-                                    <div class="avatar-title bg-dark rounded"><i class="mdi mdi-24px mdi-file-pdf"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="name">SRS Document</div>
-                                <div class="text-muted">25.5 Mb</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm ">
-                                    <div class="avatar-title bg-dark rounded"><i
-                                            class="mdi mdi-24px mdi-file-document-box"></i></div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="name">Design Guide.pdf</div>
-                                <div class="text-muted">9 Mb</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm ">
-                                    <div class="avatar avatar-sm  ">
-                                        <div class="avatar-title bg-primary rounded"><i
-                                                class="mdi mdi-24px mdi-code-braces"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="name">response.json</div>
-                                <div class="text-muted">15 Kb</div>
-                            </div>
-
-
-                        </div>
-                        <div class="list-group-item d-flex  align-items-center">
-                            <div class="m-r-20">
-                                <div class="avatar avatar-sm ">
-                                    <div class="avatar avatar-sm ">
-                                        <div class="avatar-title bg-info rounded"><i
-                                                class="mdi mdi-24px mdi-file-excel"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="">
-                                <div class="name">June Accounts.xls</div>
-                                <div class="text-muted">6 Mb</div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
         </div>
     </div>
+    <div class="hdr-desktop hide-mobile">
+        <div class="hdr-content hide-mobile">
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto logo-holder"><a href="/index.html" class="logo"><img src="/images/logo.png" srcset="images/logo-retina.png 2x" alt=""></a></div>
+                    <!--navigation-->
+                    <div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
+                    <div class="nav-holder">
+                        <div class="hdr-nav">
+                            <!--mmenu-->
+                            <ul class="mmenu mmenu-js">
+                                {{#each siteConfig.menu}}
+                                    <li class="mmenu-item--simple">
+                                        <a href="{{this.url}}">{{this.title}}</a>
+                                        {{#if this.submenu}}
+                                            <div class="mmenu-submenu">
+                                                <ul class="submenu-list">
+                                                    {{#each this.submenu}}
+                                                        <li>
+                                                            <a href="{{this.url}}" title="">
+                                                                {{this.title}}
+                                                                <span class="mmenu-preview">
+                                                            <img src="images/placeholder.png" data-src="images/menu/preview-layout-01.jpg" class="lazyload" alt=""/>
+                                                            <span class="gdw-loader"></span>
+                                                        </span>
+                                                            </a>
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                        {{/if}}
+                                    </li>
+                                {{/each}}
+                            </ul>
+                            <!--/mmenu-->
+                        </div>
+                    </div>
+                    <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
+                    <!--//navigation-->
+                    <div class="col-auto minicart-holder">
+                        <div class="minicart minicart-js"><a href="/#" class="minicart-link"><i class="icon icon-handbag"></i> <span class="minicart-qty">3</span> <span class="minicart-title">Shopping Cart</span> <span class="minicart-total">$750.00</span></a>
+                            <div class="minicart-drop">
+                                <div class="container">
+                                    <div class="minicart-drop-close">CLOSE</div>
+                                    <div class="minicart-drop-content">
+                                        <h3>Recently added items:</h3>
+                                        <div class="minicart-prd">
+                                            <div class="minicart-prd-image"><a href="/#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-05.jpg" class="lazyload" alt=""></a></div>
+                                            <div class="minicart-prd-name">
+                                                <h5><a href="/#">canverse</a></h5>
+                                                <h2><a href="/#">Checkered shirt</a></h2>
+                                            </div>
+                                            <div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
+                                            <div class="minicart-prd-price"><span>price:</span> <b>$ 75.00</b></div>
+                                            <div class="minicart-prd-action"><a href="/#" class="icon-heart js-label-wishlist"></a> <a href="/product.html" class="icon-pencil"></a> <a href="/#" class="icon-cross js-product-remove"></a></div>
+                                        </div>
+                                        <div class="minicart-prd">
+                                            <div class="minicart-prd-image"><a href="/#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-02.jpg" class="lazyload" alt=""></a></div>
+                                            <div class="minicart-prd-name">
+                                                <h5><a href="/#">canverse</a></h5>
+                                                <h2><a href="/#">Long top with print</a></h2>
+                                            </div>
+                                            <div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
+                                            <div class="minicart-prd-price"><span>price:</span> <b>$ 20.00</b></div>
+                                            <div class="minicart-prd-action"><a href="/#" class="icon-heart js-label-wishlist"></a> <a href="/product.html" class="icon-pencil"></a> <a href="/#" class="icon-cross js-product-remove"></a></div>
+                                        </div>
+                                        <div class="minicart-prd">
+                                            <div class="minicart-prd-image"><a href="/#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-14.jpg" class="lazyload" alt=""></a></div>
+                                            <div class="minicart-prd-name">
+                                                <h5><a href="/#">saucany</a></h5>
+                                                <h2><a href="/#">Knitted sweater</a></h2>
+                                            </div>
+                                            <div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
+                                            <div class="minicart-prd-price"><span>price:</span> <b>$ 199.00</b></div>
+                                            <div class="minicart-prd-action"><a href="/#" class="icon-heart js-label-wishlist"></a> <a href="/product.html" class="icon-pencil"></a> <a href="/#" class="icon-cross js-product-remove"></a></div>
+                                        </div>
+                                        <div class="minicart-drop-total">
+                                            <div class="float-right"><span class="minicart-drop-summa"><span>Cart Subtotal:</span> <b>$ 294.00</b></span>
+                                                <div class="minicart-drop-btns-wrap"><a href="/checkout.html" class="btn"><i class="icon-check-box"></i><span>checkout</span></a> <a href="/cart.html" class="btn btn--alt"><i class="icon-handbag"></i><span>view cart</span></a></div>
+                                            </div>
+                                            <div class="float-left"><a href="/cart.html" class="btn btn--alt"><i class="icon-handbag"></i><span>view cart</span></a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sticky-holder compensate-for-scrollbar">
+        <div class="container">
+            <div class="row"><a href="/#" class="mobilemenu-toggle show-mobile"><i class="icon icon-menu"></i></a>
+                <div class="col-auto logo-holder-s"><a href="/index.html" class="logo"><img src="/images/logo.png" srcset="images/logo-retina.png 2x" alt=""></a></div>
+                <!--navigation-->
+                <div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
+                <div class="nav-holder-s"></div>
+                <div class="next-menu-scroll icon-angle-right next-menu-js"></div>
+                <!--//navigation-->
+                <div class="col-auto minicart-holder-s"></div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="page-content">
+    {{{body}}}
 </div>
 
+{{> footer}}
 
-<script src="/assets/vendor/jquery/jquery.min.js"></script>
-<script src="/assets/vendor/jquery-ui/jquery-ui.min.js"></script>
-<script src="/assets/vendor/popper/popper.js"></script>
-<script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="/assets/vendor/select2/js/select2.full.min.js"></script>
-<script src="/assets/vendor/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-<script src="/assets/vendor/listjs/listjs.min.js"></script>
-<script src="/assets/vendor/moment/moment.min.js"></script>
-<script src="/assets/vendor/daterangepicker/daterangepicker.js"></script>
-<script src="/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-<script src="/assets/vendor/bootstrap-notify/bootstrap-notify.min.js"></script>
-<script src="/assets/js/atmos.min.js"></script>
-<!--page specific scripts for demo-->
-
-
+<script src="/js/vendor/jquery/jquery.min.js"></script>
+<script src="/js/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/vendor/slick/slick.min.js"></script>
+<script src="/js/vendor/scrollLock/jquery-scrollLock.min.js"></script>
+<script src="/js/vendor/instafeed/instafeed.min.js"></script>
+<script src="/js/vendor/countdown/jquery.countdown.min.js"></script>
+<script src="/js/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="/js/vendor/ez-plus/jquery.ez-plus.min.js"></script>
+<script src="/js/vendor/tocca/tocca.min.js"></script>
+<script src="/js/vendor/bootstrap-tabcollapse/bootstrap-tabcollapse.min.js"></script>
+<script src="/js/vendor/isotope/jquery.isotope.min.js"></script>
+<script src="/js/vendor/fancybox/jquery.fancybox.min.js"></script>
+<script src="/js/vendor/cookie/jquery.cookie.min.js"></script>
+<script src="/js/vendor/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/js/vendor/lazysizes/lazysizes.min.js"></script>
+<script src="/js/vendor/lazysizes/ls.bgset.min.js"></script>
+<script src="/js/vendor/form/jquery.form.min.js"></script>
+<script src="/js/vendor/form/validator.min.js"></script>
+<script src="/js/vendor/slider/slider.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>

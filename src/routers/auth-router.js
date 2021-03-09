@@ -5,8 +5,11 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 const AuthController = require("../controllers/auth-controller");
 function authRouter (app) {
-    app.get('/auth/login/', AuthController.login);
-    app.post('/auth/login/', urlencodedParser, AuthController.login);
+    app.get('/login/', AuthController.login);
+    app.post('/login/', urlencodedParser, AuthController.login);
+
+    app.get('/register/', AuthController.register);
+    app.post('/register/', urlencodedParser, AuthController.register);
 }
 
 module.exports = authRouter;

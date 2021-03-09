@@ -1,0 +1,69 @@
+<div class="holder mt-0">
+    <div class="container">
+        <ul class="breadcrumbs">
+            <li><a href="index.html">Home</a></li>
+            <li><span>My account</span></li>
+        </ul>
+    </div>
+</div>
+<div class="holder mt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 aside aside--left">
+                <div class="list-group">
+                    <a href="/account/" class="list-group-item active">Account Details</a>
+                    <a href="/account/addresses/" class="list-group-item">My Addresses</a>
+                    <a href="account-wishlist.html" class="list-group-item">My Wishlist</a>
+                    <a href="account-history.html" class="list-group-item">My Order History</a>
+                    <a href="#" class="list-group-item">My Reviews</a>
+                    <a href="#" class="list-group-item">My Saved Tags</a>
+                    <a href="#" class="list-group-item">Compare Products</a>
+                </div>
+            </div>
+            <div class="col-md-9 aside">
+                <h2>Account Details</h2>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3>Personal Info</h3>
+                                <p>
+                                    <b>First Name:</b> {{session.account.firstName}}<br>
+                                    <b>Last Name:</b> {{session.account.lastName}}<br>
+                                    <b>E-mail:</b> {{session.account.email}}<br>
+                                    <b>Phone:</b> {{#if session.account.phoneNumber}}{{session.account.phoneNumber}}{{else}}Not set{{/if}}</p>
+                                <div class="mt-2 clearfix"><a href="#" class="link-icn js-show-form" data-form="#updateDetails"><i class="icon-pencil"></i>Edit</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3 d-none" id="updateDetails">
+                    <div class="card-body">
+                        <h3>Update Account Details</h3>
+                        <div class="row mt-2">
+                            <div class="col-sm-6"><label class="text-uppercase">First Name:</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{session.account.firstName}}" disabled>
+                                </div>
+                            </div>
+                            <div class="col-sm-6"><label class="text-uppercase">Last Name:</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" value="{{session.account.lastName}}" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm-6"><label class="text-uppercase">E-mail:</label>
+                                <div class="form-group"><input type="email" class="form-control" value="{{session.account.email}}" disabled></div>
+                            </div>
+                            <div class="col-sm-6"><label class="text-uppercase">Phone:</label>
+                                <div class="form-group"><input type="text" class="form-control" placeholder="Phone Number" value="{{session.account.phoneNumber}}"></div>
+                            </div>
+                        </div>
+                        <div class="mt-2"><button type="reset" class="btn btn--alt js-close-form" data-form="#updateDetails">Cancel</button> <button type="submit" class="btn ml-1">Update</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

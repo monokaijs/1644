@@ -6,5 +6,22 @@ exports = module.exports = {
     aside: [{
         icon: "",
         title: "Dashboard",
+    }],
+    menu: [{
+        title: "Home",
+        url: "/"
+    }, {
+        title: "Products",
+        url: "/products/",
+        submenu: [{
+            title: "New Products",
+            url: "/products/new/"
+        }]
+    }, {
+        title: "About",
+        url: "/about/"
+    }, {
+        title: "Contact",
+        url: "/contact/"
     }]
 };
