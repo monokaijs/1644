@@ -48,7 +48,7 @@ class AuthController {
                 siteConfig: siteConfig,
                 response: response
             });
-            if (typeof form['submit-btn'] !== 'undefined') {
+            if (form && typeof form['submit-btn'] !== 'undefined') {
                 // form was submitted along with data
                 if (form['password'] === "" || form['password'] !== form['confirm-password']) {
                     response.status = "failed";
