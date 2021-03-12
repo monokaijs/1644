@@ -2,6 +2,7 @@ exports = module.exports = {
     name: "Toys Store",
     sessionSecret: 'mastered production hell',
     phoneNumber: '(+84) 946 024 989',
+    address: "Duy Tan Ward, Cau Giay, Hanoi",
     phoneNumberTrimmed: '+84946024989',
     aside: [{
         icon: "",
