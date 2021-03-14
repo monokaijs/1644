@@ -6,6 +6,7 @@ const authRouter = require('./routers/auth-router');
 const path = require('path');
 const siteConfig = require('./config/site-config');
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 
 const {MongoClient} = require('mongodb');
 const Database = require('./utils/database');
@@ -27,11 +28,15 @@ app.use(session({
     secret: siteConfig.sessionSecret,
     resave: false,
     saveUninitialized: true,
+    maxAge: Date.now() + (30 * 86400 * 1000),
     cookie: {
-        httpOnly: true,
+        httpOnly: false,
         secure: false,
         maxAge: null
     },
+    store: new MemoryStore({
+        checkPeriod: 86400000 // prune expired entries every 24h
+    })
 }))
 
 authRouter(app);
@@ -48,4 +53,6 @@ Database.connect(client).then(() => {
     app.listen(SERVER_PORT, SERVER_HOST, function() {
         console.log('Listening on port %d', SERVER_PORT);
     });
+
+    Database.getProducts().then(console.log);
 });

@@ -1,0 +1,46 @@
+<div class="holder mt-0">
+    <div class="container">
+        <ul class="breadcrumbs">
+            <li><a href="index.html">Home</a></li>
+            <li><span>Manage Site</span></li>
+        </ul>
+    </div>
+</div>
+<div class="holder mt-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 aside aside--left">
+                <div class="list-group">
+                    <a href="/manage/" class="list-group-item ">Site Info</a>
+                    <a href="/manage/orders/" class="list-group-item">View Orders</a>
+                    <a href="/manage/products/" class="list-group-item active">Manage Products</a>
+                    <a href="/manage/add-product/" class="list-group-item">Add Product</a>
+                    <a href="/manage/categories/" class="list-group-item">Categories</a>
+                </div>
+            </div>
+            <div class="col-md-9 aside">
+                <h2>Manage Products</h2>
+                <div class="cart-table cart-table--wishlist">
+                    {{#each products}}
+                        <div class="cart-table-prd">
+                            <div class="cart-table-prd-image"><a href="#"><img src="{{this.image}}" alt=""></a></div>
+                            <div class="cart-table-prd-name">
+                                <h5><a href="#">{{this.category}}</a></h5>
+                                <h2><a href="#">{{this.name}}</a></h2>
+                            </div>
+                            <div class="cart-table-prd-price">
+                                <span>price:</span> <b>$ {{this.price}}</b>
+                            </div>
+                            <div class="cart-table-addtocart">
+                                <a href="#" class="btn">Edit</a>
+                                <form action="/manage/products/" method="post">
+                                    <button type="submit" name="delete-product" value="{{this._id}}" href="#" class="btn btn-danger icon-cross delete-from-wishlist" title="Remove from wishlist"></button>
+                                </form>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,5 @@
+const mongodb = require("mongodb");
+
 class Database {
     static database;
     static md5;
@@ -40,6 +42,46 @@ class Database {
             });
         });
     }
+
+    static getProducts() {
+        return new Promise(resolve => {
+            let returnProducts = [];
+            const products = this.database.collection("products");
+            products.find({}, async (err, docs) => {
+                docs.each((err, product) => {
+                    if (product) {
+                        returnProducts.push(product);
+                    } else {
+                        resolve(returnProducts);
+                    }
+                });
+            });
+        });
+    }
+
+    static addProduct(name, image, price, category) {
+        return new Promise((resolve, reject) => {
+            const products = this.database.collection("products");
+            products.insertOne({
+                name: name,
+                image: image,
+                price: price,
+                category: category
+            }).then(resolve).catch(() => {
+                reject("Unexpected error occurred.");
+            });
+        });
+    }
+
+    static removeProduct(productId) {
+        return new Promise(resolve => {
+            const products = this.database.collection("products");
+            products.deleteOne({
+                _id: new mongodb.ObjectID(productId)
+            }).then(resolve);
+        });
+    }
+
     static login(email, password) {
         let md5 = this.md5;
         return new Promise((resolve, reject) => {

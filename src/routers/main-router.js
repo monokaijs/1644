@@ -1,4 +1,9 @@
 const siteConfig = require('../config/site-config');
+const MainController = require('../controllers/main-controller');
+const bodyParser = require('body-parser');
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const Database = require('../utils/database');
+
 function router(app) {
     app.get('/', function (req, res) {
         res.render("home", {
@@ -21,7 +26,7 @@ function router(app) {
     app.get('/manage/', function (req, res) {
         let sessionData = req.session;
         if (!sessionData['isLoggedIn']) {
-            res.redirect('/manage/');
+            res.redirect('/login/');
         }
         res.render('manage/manage', {
             layout: 'main',
@@ -29,5 +34,35 @@ function router(app) {
             session: req.session
         });
     });
+    app.get('/manage/products/', function (req, res) {
+        let sessionData = req.session;
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        } else {
+            Database.getProducts().then(products => {
+                res.render('manage/products', {
+                    layout: 'main',
+                    siteConfig: siteConfig,
+                    session: req.session,
+                    products: products
+                });
+            }).catch(console.log);
+        }
+    });
+    app.post('/manage/products/', urlencodedParser, MainController.ManageProduct);
+
+    app.get('/manage/add-product/', function (req, res) {
+        let sessionData = req.session;
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        }
+        res.render('manage/add-product', {
+            layout: 'main',
+            siteConfig: siteConfig,
+            session: req.session
+        });
+    });
+
+    app.post('/manage/add-product/', urlencodedParser, MainController.AddProduct);
 }
 module.exports = router;
