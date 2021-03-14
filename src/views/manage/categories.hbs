@@ -1,0 +1,57 @@
+<div class="holder mt-0">
+	<div class="container">
+		<ul class="breadcrumbs">
+			<li><a href="index.html">Home</a></li>
+			<li><span>Manage Site</span></li>
+		</ul>
+	</div>
+</div>
+<div class="holder mt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 aside aside--left">
+				<div class="list-group">
+					<a href="/manage/" class="list-group-item">Site Info</a>
+					<a href="/manage/orders/" class="list-group-item">View Orders</a>
+					<a href="/manage/products/" class="list-group-item">Manage Products</a>
+					<a href="/manage/add-product/" class="list-group-item">Add Product</a>
+					<a href="/manage/categories/" class="list-group-item active">Categories</a>
+				</div>
+			</div>
+			<div class="col-md-9 aside">
+				<h2>Manage Categories</h2>
+				<form class="card mt-3" method="post" action="#">
+					<div class="card-body">
+						<h3>Add New Category</h3>
+
+						<label class="text-uppercase">Display Name:</label>
+						<div class="form-group">
+							<input name="name" type="text" class="form-control" value="" placeholder="Display Name"/>
+						</div>
+
+						<label class="text-uppercase">Slug:</label>
+						<div class="form-group">
+							<input name="slug" type="text" class="form-control" value="" placeholder="Slug"/>
+						</div>
+
+						<div class="mt-2">
+							<button type="submit" class="btn ml-1">Add</button>
+						</div>
+					</div>
+				</form>
+				<div class="card mt-3" method="post" action="#">
+					<div class="card-body">
+						{{#each categories}}
+							<div class="cart-table-prd">
+								<div class="cart-table-prd-name">
+									<h5><a href="#">{{this.slug}}</a></h5>
+									<h2><a href="/products/{{this.slug}}/">{{this.name}}</a></h2>
+								</div>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

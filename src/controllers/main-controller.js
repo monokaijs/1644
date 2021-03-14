@@ -49,6 +49,35 @@ class MainController {
             });
         }
     }
+    static ManageCategories(req, res) {
+        let sessionData = req.session;
+        let response = {};
+
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        } else {
+            let form = req.body;
+            Database.addCategory(form['name'], form['slug']).then(() => {
+                Database.getCategories().then(categories => {
+                    res.render('manage/categories', {
+                        layout: 'main',
+                        siteConfig: siteConfig,
+                        session: req.session,
+                        response: response,
+                        categories: categories
+                    });
+                    let index = siteConfig.menu.findIndex(x => x.url === "/products/");
+                    siteConfig.menu[index].submenu = [];
+                    categories.forEach(cat => {
+                        siteConfig.menu[index].submenu.push({
+                            title: cat.name,
+                            url: '/products/' + cat.slug + '/'
+                        })
+                    });
+                });
+            });
+        }
+    }
 }
 
 module.exports = MainController;

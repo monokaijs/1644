@@ -6,31 +6,28 @@
 			<div class="mobilemenu-scroll">
 				<div class="mobilemenu-search"></div>
 				<div class="nav-wrapper show-menu">
-					<div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span class="nav-title"></span></div>
+					<div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span
+						class="nav-title"></span></div>
 					<ul class="nav nav-level-1">
-                        {{#each siteConfig.menu}}
-                            <li>
-                                <a href="{{this.url}}">{{this.title}}</a>
-                                {{#if this.submenu}}
-                                    <span class="arrow"></span>
-                                    <div class="mmenu-submenu">
-                                        <ul class="nav-level-2">
-                                            {{#each this.submenu}}
-                                                <li>
-                                                    <a href="{{this.url}}" title="">
-                                                        {{this.title}}
-                                                        <span class="mmenu-preview">
-                                                            <img src="/images/placeholder.png" data-src="/images/menu/preview-layout-01.jpg" class="lazyload" alt=""/>
-                                                            <span class="gdw-loader"></span>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            {{/each}}
-                                        </ul>
-                                    </div>
-                                {{/if}}
-                            </li>
-                        {{/each}}
+						{{#each siteConfig.menu}}
+							<li>
+								<a href="{{this.url}}">{{this.title}}</a>
+								{{#if this.submenu}}
+									<span class="arrow"></span>
+									<div class="mmenu-submenu">
+										<ul class="nav-level-2">
+											{{#each this.submenu}}
+												<li>
+													<a href="{{this.url}}" title="">
+														{{this.title}}
+													</a>
+												</li>
+											{{/each}}
+										</ul>
+									</div>
+								{{/if}}
+							</li>
+						{{/each}}
 					</ul>
 				</div>
 				<div class="mobilemenu-bottom">
@@ -48,7 +45,9 @@
 				<!-- Menu Toggle -->
 				<div class="menu-toggle"><a href="#" class="mobilemenu-toggle"><i class="icon icon-menu"></i></a></div>
 				<!-- /Menu Toggle -->
-				<div class="logo-holder"><a href="index.html" class="logo"><img src="/images/logo-green2.png" srcset="/images/logo-green2-retina.png 2x" alt=""></a></div>
+				<div class="logo-holder"><a href="index.html" class="logo"><img src="/images/logo-green2.png"
+				                                                                srcset="/images/logo-green2-retina.png 2x"
+				                                                                alt=""></a></div>
 				<div class="hdr-mobile-right">
 					<div class="hdr-topline-right links-holder"></div>
 					<div class="minicart-holder"></div>
@@ -60,40 +59,46 @@
 		<div class="hdr-content hide-mobile">
 			<div class="container">
 				<div class="row">
-					<div class="col-auto logo-holder"><a href="/" class="logo"><img src="/images/logo-green2.png" srcset="/images/logo-green2-retina.png 2x" alt=""></a></div>
+					<div class="col-auto logo-holder"><a href="/" class="logo"><img src="/images/logo-green2.png"
+					                                                                srcset="/images/logo-green2-retina.png 2x"
+					                                                                alt=""></a></div>
 					<div class="col-auto hdr-content-right ml-auto">
 						<div class="custom-text">
-                            <a href="tel:{{siteConfig.phoneNumberTrimmed}}">
-                                <i class="icon icon-mobile"></i>
-                                <b>{{siteConfig.phoneNumber}}</b>
-                            </a>
-                        </div>
+							<a href="tel:{{siteConfig.phoneNumberTrimmed}}">
+								<i class="icon icon-mobile"></i>
+								<b>{{siteConfig.phoneNumber}}</b>
+							</a>
+						</div>
 						<div class="links-holder">
-                            {{#ifCond session.account.role "admin"}}
-                                <div class="dropdn dropdn_wishlist only-text">
-                                    <a href="/manage/" class="dropdn-link"><i class="icon icon-heart-1"></i><span>Manage site</span></a>
-                                </div>
-                            {{/ifCond}}
+							{{#ifCond session.account.role "admin"}}
+								<div class="dropdn dropdn_wishlist only-text">
+									<a href="/manage/" class="dropdn-link"><i class="icon icon-heart-1"></i><span>Manage site</span></a>
+								</div>
+							{{/ifCond}}
 							<!-- /Header Wishlist -->
 							<!-- Header Account -->
 							<div class="dropdn dropdn_account only-text">
-                                {{#if session.isLoggedIn}}
-                                    <a href="/account/" class="dropdn-link"><i class="icon icon-person"></i>
-                                        <span>My Account</span>
-                                    </a>
-                                {{else}}
-                                    <a href="/login/" class="dropdn-link"><i class="icon icon-person"></i>
-                                        <span>Login</span>
-                                    </a>
-                                {{/if}}
+								{{#if session.isLoggedIn}}
+									<a href="/account/" class="dropdn-link"><i class="icon icon-person"></i>
+										<span>My Account</span>
+									</a>
+								{{else}}
+									<a href="/login/" class="dropdn-link"><i class="icon icon-person"></i>
+										<span>Login</span>
+									</a>
+								{{/if}}
 								<div class="dropdn-content">
 									<div class="container">
 										<div class="dropdn-close">CLOSE</div>
 										<ul>
-											<li><a href="/account/"><i class="icon icon-person-fill"></i><span>My Account</span></a></li>
-											<li><a href="login.html"><i class="icon icon-lock"></i><span>Log In</span></a></li>
-											<li><a href="account-create.html"><i class="icon icon-person-fill-add"></i><span>Register</span></a></li>
-											<li><a href="checkout.html"><i class="icon icon-check-box"></i><span>Checkout</span></a></li>
+											<li><a href="/account/"><i class="icon icon-person-fill"></i><span>My Account</span></a>
+											</li>
+											<li><a href="login.html"><i
+												class="icon icon-lock"></i><span>Log In</span></a></li>
+											<li><a href="account-create.html"><i
+												class="icon icon-person-fill-add"></i><span>Register</span></a></li>
+											<li><a href="checkout.html"><i class="icon icon-check-box"></i><span>Checkout</span></a>
+											</li>
 										</ul>
 									</div>
 								</div>
@@ -112,28 +117,24 @@
 						<div class="hdr-nav">
 							<!--mmenu-->
 							<ul class="mmenu mmenu-js">
-                                {{#each siteConfig.menu}}
-                                    <li class="mmenu-item--simple">
-                                        <a href="{{this.url}}">{{this.title}}</a>
-                                        {{#if this.submenu}}
-                                            <div class="mmenu-submenu">
-                                                <ul class="submenu-list">
-                                                {{#each this.submenu}}
-                                                    <li>
-                                                        <a href="{{this.url}}" title="">
-                                                            {{this.title}}
-                                                            <span class="mmenu-preview">
-                                                            <img src="/images/placeholder.png" data-src="/images/menu/preview-layout-01.jpg" class="lazyload" alt=""/>
-                                                            <span class="gdw-loader"></span>
-                                                        </span>
-                                                        </a>
-                                                    </li>
-                                                {{/each}}
-                                                </ul>
-                                            </div>
-                                        {{/if}}
-                                    </li>
-                                {{/each}}
+								{{#each siteConfig.menu}}
+									<li class="mmenu-item--simple">
+										<a href="{{this.url}}">{{this.title}}</a>
+										{{#if this.submenu}}
+											<div class="mmenu-submenu">
+												<ul class="submenu-list">
+													{{#each this.submenu}}
+														<li>
+															<a href="{{this.url}}" title="">
+																{{this.title}}
+															</a>
+														</li>
+													{{/each}}
+												</ul>
+											</div>
+										{{/if}}
+									</li>
+								{{/each}}
 								</li>
 							</ul>
 							<!--/mmenu-->
@@ -141,58 +142,80 @@
 					</div>
 					<!--//navigation-->
 					<!-- Header Search -->
-					<div class="dropdn dropdn_search hide-mobile only-icon"><a href="#" class="dropdn-link"><i class="icon icon-search2"></i><span>Search</span></a>
-						<div class="dropdn-content">
-							<div class="container">
-								<form action="#" class="search"><button type="submit" class="search-button"><i class="icon-search2"></i></button> <input type="text" class="search-input" placeholder="search keyword">
-									<div class="search-popular js-search-autofill"><span class="search-popular-label">popular searches:</span><a href="#">Jeans</a> <a href="#">Sunglazsses</a> <a href="#">hand bags</a> <a href="#">Discount</a> <a href="#">St.Valentine’s gift</a> <a href="#">maxi dress</a> <a href="#">Underwear</a><a href="#">new in clothing</a> <a href="#">men tops</a></div>
-								</form>
-							</div>
-						</div>
+					<div class="dropdn dropdn_search hide-mobile only-icon">
+						<a href="#" class="dropdn-link"><i class="icon icon-search2"></i><span>Search</span></a>
 					</div>
 					<!-- /Header Search -->
 					<div class="col-auto minicart-holder">
-						<div class="minicart minicart-js"><a href="#" class="minicart-link"><i class="icon icon-handbag"></i> <span class="minicart-qty">3</span> <span class="minicart-title">Shopping Cart</span> <span class="minicart-total">$750.00</span></a>
+						<div class="minicart minicart-js"><a href="#" class="minicart-link"><i
+							class="icon icon-handbag"></i> <span class="minicart-qty">3</span> <span
+							class="minicart-title">Shopping Cart</span> <span class="minicart-total">$750.00</span></a>
 							<div class="minicart-drop">
 								<div class="container">
 									<div class="minicart-drop-close">CLOSE</div>
 									<div class="minicart-drop-content">
 										<h3>Recently added items:</h3>
 										<div class="minicart-prd">
-											<div class="minicart-prd-image"><a href="#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-05.jpg" class="lazyload" alt=""></a></div>
+											<div class="minicart-prd-image"><a href="#"><img
+												src="/images/products/product-placeholder.png"
+												data-srcset="images/products/xsmall/product-05.jpg" class="lazyload"
+												alt=""></a></div>
 											<div class="minicart-prd-name">
 												<h5><a href="#">canverse</a></h5>
 												<h2><a href="#">Checkered shirt</a></h2>
 											</div>
 											<div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
 											<div class="minicart-prd-price"><span>price:</span> <b>$ 75.00</b></div>
-											<div class="minicart-prd-action"><a href="#" class="icon-heart js-label-wishlist"></a> <a href="product.html" class="icon-pencil"></a> <a href="#" class="icon-cross js-product-remove"></a></div>
+											<div class="minicart-prd-action"><a href="#"
+											                                    class="icon-heart js-label-wishlist"></a>
+												<a href="product.html" class="icon-pencil"></a> <a href="#"
+												                                                   class="icon-cross js-product-remove"></a>
+											</div>
 										</div>
 										<div class="minicart-prd">
-											<div class="minicart-prd-image"><a href="#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-02.jpg" class="lazyload" alt=""></a></div>
+											<div class="minicart-prd-image"><a href="#"><img
+												src="/images/products/product-placeholder.png"
+												data-srcset="images/products/xsmall/product-02.jpg" class="lazyload"
+												alt=""></a></div>
 											<div class="minicart-prd-name">
 												<h5><a href="#">canverse</a></h5>
 												<h2><a href="#">Long top with print</a></h2>
 											</div>
 											<div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
 											<div class="minicart-prd-price"><span>price:</span> <b>$ 20.00</b></div>
-											<div class="minicart-prd-action"><a href="#" class="icon-heart js-label-wishlist"></a> <a href="product.html" class="icon-pencil"></a> <a href="#" class="icon-cross js-product-remove"></a></div>
+											<div class="minicart-prd-action"><a href="#"
+											                                    class="icon-heart js-label-wishlist"></a>
+												<a href="product.html" class="icon-pencil"></a> <a href="#"
+												                                                   class="icon-cross js-product-remove"></a>
+											</div>
 										</div>
 										<div class="minicart-prd">
-											<div class="minicart-prd-image"><a href="#"><img src="/images/products/product-placeholder.png" data-srcset="images/products/xsmall/product-14.jpg" class="lazyload" alt=""></a></div>
+											<div class="minicart-prd-image"><a href="#"><img
+												src="/images/products/product-placeholder.png"
+												data-srcset="images/products/xsmall/product-14.jpg" class="lazyload"
+												alt=""></a></div>
 											<div class="minicart-prd-name">
 												<h5><a href="#">saucany</a></h5>
 												<h2><a href="#">Knitted sweater</a></h2>
 											</div>
 											<div class="minicart-prd-qty"><span>qty:</span> <b>1</b></div>
 											<div class="minicart-prd-price"><span>price:</span> <b>$ 199.00</b></div>
-											<div class="minicart-prd-action"><a href="#" class="icon-heart js-label-wishlist"></a> <a href="product.html" class="icon-pencil"></a> <a href="#" class="icon-cross js-product-remove"></a></div>
+											<div class="minicart-prd-action"><a href="#"
+											                                    class="icon-heart js-label-wishlist"></a>
+												<a href="product.html" class="icon-pencil"></a> <a href="#"
+												                                                   class="icon-cross js-product-remove"></a>
+											</div>
 										</div>
 										<div class="minicart-drop-total">
 											<div class="float-right"><span class="minicart-drop-summa"><span>Cart Subtotal:</span> <b>$ 294.00</b></span>
-												<div class="minicart-drop-btns-wrap"><a href="checkout.html" class="btn"><i class="icon-check-box"></i><span>checkout</span></a> <a href="cart.html" class="btn btn--alt"><i class="icon-handbag"></i><span>view cart</span></a></div>
+												<div class="minicart-drop-btns-wrap"><a href="checkout.html"
+												                                        class="btn"><i
+													class="icon-check-box"></i><span>checkout</span></a> <a
+													href="cart.html" class="btn btn--alt"><i
+													class="icon-handbag"></i><span>view cart</span></a></div>
 											</div>
-											<div class="float-left"><a href="cart.html" class="btn btn--alt"><i class="icon-handbag"></i><span>view cart</span></a></div>
+											<div class="float-left"><a href="cart.html" class="btn btn--alt"><i
+												class="icon-handbag"></i><span>view cart</span></a></div>
 										</div>
 									</div>
 								</div>
@@ -206,7 +229,9 @@
 	<div class="sticky-holder compensate-for-scrollbar">
 		<div class="container">
 			<div class="row"><a href="#" class="mobilemenu-toggle show-mobile"><i class="icon icon-menu"></i></a>
-				<div class="col-auto logo-holder-s"><a href="index.html" class="logo"><img src="/images/logo-green2.png" srcset="images/logo-green2-retina.png 2x" alt=""></a></div>
+				<div class="col-auto logo-holder-s"><a href="index.html" class="logo"><img src="/images/logo-green2.png"
+				                                                                           srcset="images/logo-green2-retina.png 2x"
+				                                                                           alt=""></a></div>
 				<!--navigation-->
 				<div class="prev-menu-scroll icon-angle-left prev-menu-js"></div>
 				<div class="nav-holder-s"></div>

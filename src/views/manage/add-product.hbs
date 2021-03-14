@@ -49,6 +49,9 @@
                         <div class="form-group">
                             <select name="category" type="text" class="form-control">
                                 <option value="none" selected>No category</option>
+	                            {{#each categories}}
+		                            <option value="{{this.slug}}">{{this.name}}</option>
+	                            {{/each}}
                             </select>
                         </div>
 

@@ -39,6 +39,17 @@ app.use(session({
     })
 }))
 
+Database.getCategories().then(categories => {
+    let index = siteConfig.menu.findIndex(x => x.url === "/products/");
+    siteConfig.menu[index].submenu = [];
+    categories.forEach(cat => {
+        siteConfig.menu[index].submenu.push({
+            title: cat.name,
+            url: '/products/' + cat.slug + '/'
+        })
+    });
+});
+
 authRouter(app);
 router(app);
 let uri = "mongodb+srv://admin:Mongo123@cluster0.ifklf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";

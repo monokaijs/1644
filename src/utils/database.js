@@ -59,6 +59,32 @@ class Database {
         });
     }
 
+    static getCategories() {
+        return new Promise(resolve => {
+            let returnCategories = [];
+            const categories = this.database.collection("categories");
+            categories.find({}, async (err, docs) => {
+                docs.each((err, category) => {
+                    if (category) {
+                        returnCategories.push(category);
+                    } else {
+                        resolve(returnCategories);
+                    }
+                });
+            });
+        });
+    }
+
+    static addCategory(name, slug) {
+        return new Promise(resolve => {
+            const categories = this.database.collection("categories");
+            categories.insertOne({
+                name: name,
+                slug: slug
+            }).then(resolve);
+        });
+    }
+
     static addProduct(name, image, price, category) {
         return new Promise((resolve, reject) => {
             const products = this.database.collection("products");

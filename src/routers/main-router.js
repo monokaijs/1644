@@ -56,13 +56,33 @@ function router(app) {
         if (!sessionData['isLoggedIn']) {
             res.redirect('/login/');
         }
-        res.render('manage/add-product', {
-            layout: 'main',
-            siteConfig: siteConfig,
-            session: req.session
+        Database.getCategories().then(categories => {
+            res.render('manage/add-product', {
+                layout: 'main',
+                siteConfig: siteConfig,
+                session: req.session,
+                categories: categories
+            });
         });
     });
 
     app.post('/manage/add-product/', urlencodedParser, MainController.AddProduct);
+
+    app.get('/manage/categories/', function (req, res) {
+        let sessionData = req.session;
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        }
+        Database.getCategories().then(categories => {
+            res.render('manage/categories', {
+                layout: 'main',
+                siteConfig: siteConfig,
+                session: req.session,
+                categories: categories
+            });
+        });
+    });
+
+    app.post('/manage/categories/', urlencodedParser, MainController.ManageCategories);
 }
 module.exports = router;
