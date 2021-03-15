@@ -49,6 +49,17 @@ class MainController {
             });
         }
     }
+    static EditProduct(req, res) {
+        let sessionData = req.session;
+        let response = {};
+
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        } else {
+            let form = req.body;
+
+        }
+    }
     static ManageCategories(req, res) {
         let sessionData = req.session;
         let response = {};

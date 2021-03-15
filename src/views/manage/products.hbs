@@ -32,8 +32,8 @@
                                 <span>price:</span> <b>$ {{this.price}}</b>
                             </div>
                             <div class="cart-table-addtocart">
-                                <a href="#" class="btn">Edit</a>
-                                <form action="/manage/products/" method="post">
+                                <a href="/manage/products/{{this._id}}/" class="btn">Edit</a>
+                                <form action="#" method="post">
                                     <button type="submit" name="delete-product" value="{{this._id}}" href="#" class="btn btn-danger icon-cross delete-from-wishlist" title="Remove from wishlist"></button>
                                 </form>
                             </div>

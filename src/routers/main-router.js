@@ -34,6 +34,23 @@ function router(app) {
             session: req.session
         });
     });
+    app.get('/manage/products/:productId/', function (req, res) {
+        let sessionData = req.session;
+        if (!sessionData['isLoggedIn']) {
+            res.redirect('/login/');
+        } else {
+            Database.getProducts().then(products => {
+                res.render('manage/edit-product', {
+                    layout: 'main',
+                    siteConfig: siteConfig,
+                    session: req.session,
+                    products: products
+                });
+            }).catch(console.log);
+        }
+    });
+    app.post('/manage/products/:productId/', urlencodedParser, MainController.EditProduct);
+
     app.get('/manage/products/', function (req, res) {
         let sessionData = req.session;
         if (!sessionData['isLoggedIn']) {
