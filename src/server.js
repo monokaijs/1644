@@ -39,16 +39,6 @@ app.use(session({
     })
 }))
 
-Database.getCategories().then(categories => {
-    let index = siteConfig.menu.findIndex(x => x.url === "/products/");
-    siteConfig.menu[index].submenu = [];
-    categories.forEach(cat => {
-        siteConfig.menu[index].submenu.push({
-            title: cat.name,
-            url: '/products/' + cat.slug + '/'
-        })
-    });
-});
 
 authRouter(app);
 router(app);
@@ -65,5 +55,14 @@ Database.connect(client).then(() => {
         console.log('Listening on port %d', SERVER_PORT);
     });
 
-    Database.getProducts().then(console.log);
+    Database.getCategories().then(categories => {
+        let index = siteConfig.menu.findIndex(x => x.url === "/products/");
+        siteConfig.menu[index].submenu = [];
+        categories.forEach(cat => {
+            siteConfig.menu[index].submenu.push({
+                title: cat.name,
+                url: '/products/' + cat.slug + '/'
+            })
+        });
+    });
 });

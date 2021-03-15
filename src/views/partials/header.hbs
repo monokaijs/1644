@@ -9,7 +9,7 @@
 					<div class="nav-toggle"><span class="nav-back"><i class="icon-arrow-left"></i></span> <span
 						class="nav-title"></span></div>
 					<ul class="nav nav-level-1">
-						{{#each siteConfig.menu}}
+						{{#each globalMenu}}
 							<li>
 								<a href="{{this.url}}">{{this.title}}</a>
 								{{#if this.submenu}}
@@ -117,7 +117,7 @@
 						<div class="hdr-nav">
 							<!--mmenu-->
 							<ul class="mmenu mmenu-js">
-								{{#each siteConfig.menu}}
+								{{#each globalMenu}}
 									<li class="mmenu-item--simple">
 										<a href="{{this.url}}">{{this.title}}</a>
 										{{#if this.submenu}}
